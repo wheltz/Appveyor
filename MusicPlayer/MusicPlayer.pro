@@ -32,3 +32,12 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+DISTFILES += \
+    image/ios-pause.png \
+    image/ios-play (1).png \
+    image/ios-skipbackward.png \
+    image/ios-skipforward.png
+
+RESOURCES += \
+    image.qrc
