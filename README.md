@@ -11,6 +11,8 @@ Qt实现的音乐播放器MusicPlayer，使用CI持续集成(Github actions)
 
 [win-badge]: https://github.com/JaredTao/HelloActions-Qt/workflows/Windows/badge.svg  "Windows"
 
+ [win-link] :  https://github.com/JaredTao/HelloActions-Qt/actions?query=workflow%3AWindows  “WindowsAction”
+
 ## 项目进度
 
 |Tag|功能|
