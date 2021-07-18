@@ -1,6 +1,7 @@
 ﻿#ifndef MUSIC_H
 #define MUSIC_H
 #include <QUrl>
+#include <memory>
 
 class Music
 {

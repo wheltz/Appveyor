@@ -2,6 +2,7 @@
 #define NOTIFICATION_H
 
 #include <QString>
+#include <memory>
 
 class Notification
 {

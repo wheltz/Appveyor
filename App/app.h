@@ -2,6 +2,7 @@
 #define APP_H
 #include "View/mainwindow.h"
 #include "Model/musiclist.h"
+#include <memory>
 #include "ViewModel/viewmodel.h"
 
 class App

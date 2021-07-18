@@ -4,6 +4,7 @@
 #include "Notification/notification.h"
 #include "View/mainwindow.h"
 
+
 class UpdateViewNotification : public Notification{
 private:
     std::shared_ptr<MainWindow> window;
