@@ -4,12 +4,13 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = MusicPlayer
 TEMPLATE = app
+CONFIG += c++17
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
@@ -23,12 +24,47 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
+
+
 SOURCES += \
+    ViewModel/deletemusiccommand.cpp \
         main.cpp \
-        mainwindow.cpp
+        View/mainwindow.cpp \
+#        ViewModel/*.cpp \
+#        Model/*.cpp \
+#        mainwindow.cpp \
+        App/app.cpp \
+        Model/musiclist.cpp \
+        Model/music.cpp \
+        ViewModel/viewmodel.cpp \
+        Commands/command.cpp \
+        ViewModel/addmusiccommand.cpp\
+        Notification/notification.cpp \
+    View/updateviewnotification.cpp \
+    ViewModel/updateinfonotification.cpp
+
+
 
 HEADERS += \
-        mainwindow.h
+#        mainwindow.h \
+#        Common/*.h \
+#        App/*.h \
+#        Commands/*.h \
+        View/mainwindow.h \
+#        ViewModel/*.h \
+#        Model/*.h \
+        App/app.h \
+        Model/musiclist.h \
+        Model/music.h \
+    ViewModel/deletemusiccommand.h \
+        ViewModel/viewmodel.h \
+        Commands/command.h \
+        ViewModel/addmusiccommand.h\
+        Notification/notification.h\
+    Notification/notification.h \
+    View/updateviewnotification.h \
+    ViewModel/updateinfonotification.h \
+        myqss.h
 
 FORMS += \
         mainwindow.ui

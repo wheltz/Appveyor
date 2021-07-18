@@ -13,24 +13,37 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow
+{
+background-image: url(:/image/image/background.png);
+background-repeat:no-repeat;
+background-position:center center;
+border:none;
+}
+</string>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>680</y>
+      <x>480</x>
+      <y>690</y>
       <width>291</width>
       <height>61</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,1,1,1,1">
+    <layout class="QHBoxLayout" name="playcontrol" stretch="1,1,1,1,1">
      <property name="spacing">
       <number>0</number>
      </property>
      <item>
-      <widget class="QPushButton" name="to_Last">
+      <widget class="QPushButton" name="skipbackward">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
@@ -65,21 +78,19 @@ border:none;
      </item>
      <item>
       <widget class="QPushButton" name="Pause">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
 {
-background-image: url(:/image/image/pause.png);
+background-image: url(:/image/image/play.png);
 background-repeat:no-repeat;
 background-position:center center;
 border:none;
 }
 
 
-QPushButton:pressed{
-background-image: url(:/image/image/play.png);
-background-repeat:no-repeat;
-background-position:center center;
-}
 </string>
        </property>
        <property name="text">
@@ -101,9 +112,12 @@ background-position:center center;
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="to_Next">
+      <widget class="QPushButton" name="skipforward">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="styleSheet">
         <string notr="true">QPushButton
@@ -122,8 +136,361 @@ border:none;
      </item>
     </layout>
    </widget>
-   <zorder>pushButton</zorder>
+   <widget class="QPushButton" name="volume">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>700</y>
+      <width>32</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+background-image: url(:/image/image/volume.png);
+background-repeat:no-repeat;
+background-position:center center;
+border:none;
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QSlider" name="positionSlider">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>610</y>
+      <width>1200</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="playmode">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>700</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-image:url(:/image/image/repeat.png);
+background-repeat:norepeat;
+background-position:center;
+border:none;
+}
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="musicname">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>700</y>
+      <width>401</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>歌曲名</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="local">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>230</y>
+      <width>361</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>1</horstretch>
+      <verstretch>1</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget{
+alternate-background-color:#E0E0E0;
+background:#FFFFFFFF;
+}
+
+QTableWidget::item:selected {
+background:#C0C0C0;               
+}
+QTableWidget::item:hover {
+background:#A0A0A0;               
+}</string>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>30</number>
+    </attribute>
+    <attribute name="verticalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>本地歌曲</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="playlist">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>700</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-image:url(:/image/image/playlist.png);
+background-repeat:norepeat;
+background-position:center;
+border:none
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="addMusic">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>180</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-image:url(:/image/image/addmusic.png);
+background-repeat:norepeat;
+background-position:center;
+border:none
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QSlider" name="volumeSlider">
+    <property name="geometry">
+     <rect>
+      <x>1130</x>
+      <y>530</y>
+      <width>22</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="playprogress">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>730</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>00:00 / 00:00</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteMusic">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>180</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+background-image:url(:/image/image/deletemusic.png);
+background-repeat:norepeat;
+background-position:center;
+border:none
+
+
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="favor">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>230</y>
+      <width>361</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>1</horstretch>
+      <verstretch>1</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget{
+alternate-background-color:#E0E0E0;
+background:#FFFFFFFF;
+}
+
+QTableWidget::item:selected {
+background:#C0C0C0;               
+}
+QTableWidget::item:hover {
+background:#A0A0A0;               
+}</string>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>30</number>
+    </attribute>
+    <attribute name="verticalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>我喜欢</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QTableWidget" name="history">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>230</y>
+      <width>361</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>1</horstretch>
+      <verstretch>1</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QTableWidget{
+alternate-background-color:#E0E0E0;
+background:#FFFFFFFF;
+}
+
+QTableWidget::item:selected {
+background:#C0C0C0;               
+}
+QTableWidget::item:hover {
+background:#A0A0A0;               
+}</string>
+    </property>
+    <property name="alternatingRowColors">
+     <bool>true</bool>
+    </property>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderStretchLastSection">
+     <bool>true</bool>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>30</number>
+    </attribute>
+    <attribute name="verticalHeaderStretchLastSection">
+     <bool>false</bool>
+    </attribute>
+    <column>
+     <property name="text">
+      <string>最近播放</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>230</y>
+      <width>256</width>
+      <height>291</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>我喜欢</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>本地音乐</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>历史记录</string>
+     </property>
+    </item>
+   </widget>
    <zorder>horizontalLayoutWidget</zorder>
+   <zorder>volume</zorder>
+   <zorder>positionSlider</zorder>
+   <zorder>playmode</zorder>
+   <zorder>musicname</zorder>
+   <zorder>playlist</zorder>
+   <zorder>addMusic</zorder>
+   <zorder>volumeSlider</zorder>
+   <zorder>playprogress</zorder>
+   <zorder>deleteMusic</zorder>
+   <zorder>favor</zorder>
+   <zorder>history</zorder>
+   <zorder>listWidget</zorder>
+   <zorder>local</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
